@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_chat import message
-
+import os
 st.set_page_config(page_title="📚 Multi-Doc Chat Assistant", layout="wide")
 
 # ------------------ Sidebar ------------------
@@ -11,7 +11,14 @@ with st.sidebar:
         type=["pdf", "docx"],
         accept_multiple_files=True
     )
-
+    UPLOAD_DIRECTORY = "uploaded_files"
+    if not os.path.exists(UPLOAD_DIRECTORY):
+        os.makedirs(UPLOAD_DIRECTORY)
+    # Save uploaded files   
+    for uploaded_file in uploaded_files:
+        file_path = os.path.join(UPLOAD_DIRECTORY, uploaded_file.name)
+        with open(file_path, "wb") as f:
+            f.write(uploaded_file.getbuffer())
     if uploaded_files:
         st.success(f"{len(uploaded_files)} document(s) uploaded.")
         for file in uploaded_files:
