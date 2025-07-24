@@ -32,7 +32,7 @@ with st.sidebar:
 # ------------------ Main Header ------------------
 st.markdown("""
     <div style="text-align: center;">
-        <h1 style="color:#4F8BF9;">🧠 Multi-Doc Chat AI</h1>
+        <h1 style="color:#4F8BF9;">SmartScraper</h1>
         <p style="color:grey;">Chat with your uploaded PDFs or DOCX files in real-time</p>
     </div>
     <hr style="margin-top: -10px;">
